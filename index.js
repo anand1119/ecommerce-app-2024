@@ -7,13 +7,16 @@ import categoryRoutes from "./routes/categoryRoute.js";
 import productRoutes from "./routes/productRoute.js";
 import cors from 'cors';
 import path from 'path';
-
+import { fileURLToPath } from 'url';
 
 dotenv.config();
 
 connectDB();
 
 const app = express();
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 app.use(cors());
 app.use(express.json());
@@ -34,8 +37,3 @@ app.listen(PORT, () => {
     console.log(`Server Running on port: ${PORT}`);
 });
 
-// CLOUDINARY_CLOUD_NAME=dzgnogwur
-// CLOUDINARY_KEY=983514456525589
-// CLOUDINARY_SECRET=lAAeVHK0I0B-U09gU-eLP3fmBqk
-// DB_URL=mongodb+srv://anand1119:Shankar%40731@cluster0.secr746.mongodb.net/?retryWrites=true&w=majority
-// SECRET=thisisasecretonlyforme
